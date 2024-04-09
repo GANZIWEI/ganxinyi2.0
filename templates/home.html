@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Self learning</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0; /* Background color for the entire page */
+            color: #333; /* Default text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        img {
+            width: 100%; /* Make the image fill the width of its container */
+            height: 200px; /* Maintain the aspect ratio of the image */
+            object-fit: cover;
+        }
+
+        #container {
+            max-width: 720px;
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add padding to the container */
+            text-align: center; /* Center-align the content inside the container */
+        }
+
+        h1 {
+            font-size: 60px;
+            font-family: Roboto;
+            font-weight: normal;
+            margin-top: 20px; /* Add some top margin to the heading */
+            color: rgb(50,50,50);
+        }
+
+        .bodytext {
+            font-size: 18px;
+            line-height: 1.5; /* Set line height for better readability */
+            color: #666; /* Text color for body text */
+        }
+
+        button {
+            padding: 10px 20px; /* Add padding to the button */
+            font-size: 16px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker background color on hover */
+        }
+
+        /* Align the Stupid Person section to the left */
+        .stupid-persons {
+            text-align: left;
+            margin-left: 20px; /* Add left margin for better appearance */
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <h1 class="text-center mt-2 mb-2">You Stupid</h1>
+    <img class="img-fluid" src="/static/stupid2.jpg">
+    <div id="container">
+        <h2 class="bodytext">THE REASON WHY YOU ARE Stupid</h2>
+        <p class="bodytext">BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN! BECAUSE YOU ARE A HUMAN!</p>
+        <h3 class="bodytext">Stupid Person</h3>
+        <div class="stupid-persons">
+            {% for person in persons %}
+                <div class="border-bottom row" style="margin-bottom: 4px;">
+                    <div class="col-8">
+                        <h4 style="color:rgb(120,120,120);margin-bottom: auto; padding-bottom: 8px;">
+                            {{ person['Name'] }}
+                        </h4>
+                        <div class="mt-2 mb-2">Problem : {{ person['Problem'] }}</div>
+                        <div class="mt-2 mb-2">Stupid index : {{ person['Stupid index'] }}</div>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="{{ person['html'] }}"><button type="button" class="btn btn-outline-primary">Idiot Face</button></a>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <a href = "/button"><button> Press it stupid</button></a>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    
+</body>
+</html>
